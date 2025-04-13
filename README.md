@@ -70,7 +70,7 @@ XLM is specifically designed for multilingual NLP tasks. It leverages Transforme
    - Visualize performance with Confusion Matrices and AUC-ROC curves.
 
 6. **Model Tuning**:
-   - Fine-tune hyperparameters using methods like Grid Search or Random Search.
+   - Fine-tune hyperparameters using Random Search.
 
 ### Deliverables:
 - Two Jupyter notebooks or Python files implementing the models.
