@@ -86,7 +86,7 @@ XLM is specifically designed for multilingual NLP tasks. It leverages Transforme
 2. Install the required dependencies from `requirements.txt`.
 3. Run the notebooks or Python files for both models:
    - `model1_implementation.ipynb` (Random Forest and LSTM models).
-   - `model2_implementation.ipynb` (XLM-R model).
+   - `model2_implementation.ipynb` (XLM model).
 
 4. Evaluate the models using the test dataset and review the performance metrics.
 
