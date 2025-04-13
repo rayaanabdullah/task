@@ -47,6 +47,7 @@ There is a class imbalance in the dataset where toxic comments might not be even
 
 3. **Model Implementation**:
 🧠 Model Implementation Details
+
 🌲 **Random Forest**
 The Random Forest model was optimized using RandomizedSearchCV with a 5-fold cross-validation approach. A wide range of hyperparameters were explored, including the number of estimators, max depth, minimum samples per split and leaf, class weighting, and maximum feature selection methods. TF-IDF features were used for training the model, and class imbalance was handled using resampling techniques. The best estimator obtained from the random search was used for final training and evaluation.
 
