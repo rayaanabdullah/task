@@ -84,7 +84,3 @@ There is a class imbalance in the dataset where toxic comments might not be even
 ## Additional Notes:
 - This project is designed to simulate real-world content moderation challenges.
 - Handling multilingual content and class imbalance are key aspects of the solution.
-
----
-
-This version incorporates the specific models you used (Random Forest, LSTM, and XLM-R) and details the steps you took in the project. Let me know if you'd like any further changes or additions!
