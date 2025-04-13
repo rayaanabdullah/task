@@ -45,16 +45,31 @@ There is a class imbalance in the dataset where toxic comments might not be even
    - Apply techniques like stemming or lemmatization.
    - Use feature extraction methods like TF-IDF or Transformer embeddings.
 
-3. **Model Creation**:
-   - **Random Forest**: A baseline model to capture basic patterns in the data.
-   - **LSTM (Long Short-Term Memory)**: A deep learning model for sequence data, capturing the sequential nature of text.
-   - **XLM-R (Cross-lingual Model)**: A transformer-based model for multilingual text processing. Fine-tuning XLM-R allows the model to handle diverse languages effectively.
+3. **Model Implementation**:
+🧠 Model Implementation Details
+🌲 **Random Forest**
+The Random Forest model was optimized using RandomizedSearchCV with a 5-fold cross-validation approach. A wide range of hyperparameters were explored, including the number of estimators, max depth, minimum samples per split and leaf, class weighting, and maximum feature selection methods. TF-IDF features were used for training the model, and class imbalance was handled using resampling techniques. The best estimator obtained from the random search was used for final training and evaluation.
+🔁 **LSTM (Long Short-Term Memory)**
+The LSTM model was implemented using PyTorch, and input data was tokenized using the BERT tokenizer. A custom Dataset class was created to handle text preprocessing. The model architecture included an embedding layer, a two-layer LSTM, dropout regularization, and a fully connected output layer. The model was trained using cross-entropy loss and the Adam optimizer over 5 epochs. Performance metrics including accuracy and ROC-AUC were logged per epoch, and class imbalance was a significant challenge.
+🌐 **XLM-RoBERTa**
+XLM-RoBERTa was fine-tuned using the HuggingFace `Trainer` API for sequence classification. The pre-trained 'xlm-roberta-base' model was used, with a binary classification head. Training arguments included early stopping, learning rate scheduling, and evaluation on the validation set per epoch. This approach is particularly suited for multilingual tasks, offering robustness in handling language diversity. Training was performed on a GPU when available to speed up the process.
 
-4. **Model Evaluation**:
+**Why these three model choosen for Implementation**
+
+🔹 Random Forest
+Random Forest is a powerful baseline model that performs well on structured data and provides interpretable results. It can handle class imbalance through techniques like class weighting and bootstrapping. Given your dataset’s multi-label binary format and the need for overall “toxic” detection, Random Forest can effectively learn from engineered features like TF-IDF. It’s also relatively fast to train and evaluate, making it suitable for benchmarking and quick iterations before moving to more complex models.
+
+🔹 LSTM (Long Short-Term Memory)
+LSTM networks are ideal for processing sequential data, such as text, where context and word order matter. They can capture long-term dependencies and nuances in sentence structure—crucial for distinguishing subtle toxic language patterns. This is particularly useful in multi-label classification tasks involving diverse linguistic expressions. LSTM models can generalize well to multilingual content by learning patterns from longer feedback texts, which helps address the multilingual challenge in your validation/test sets.
+
+🔹 XLM (Cross-lingual Language Model)
+XLM is specifically designed for multilingual NLP tasks. It leverages Transformer architecture and cross-lingual embeddings, making it exceptionally suitable for your dataset, which contains English during training but expects predictions on various languages. Fine-tuning XLM allows the model to generalize across languages and handle code-switching or non-English content more robustly. Its contextual understanding significantly boosts performance in identifying toxic content across cultures and linguistic variations.
+
+5. **Model Evaluation**:
    - Compute metrics like accuracy, precision, recall, and F1-score.
    - Visualize performance with Confusion Matrices and AUC-ROC curves.
 
-5. **Model Tuning**:
+6. **Model Tuning**:
    - Fine-tune hyperparameters using methods like Grid Search or Random Search.
 
 ### Deliverables:
