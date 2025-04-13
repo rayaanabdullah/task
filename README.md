@@ -49,8 +49,10 @@ There is a class imbalance in the dataset where toxic comments might not be even
 🧠 Model Implementation Details
 🌲 **Random Forest**
 The Random Forest model was optimized using RandomizedSearchCV with a 5-fold cross-validation approach. A wide range of hyperparameters were explored, including the number of estimators, max depth, minimum samples per split and leaf, class weighting, and maximum feature selection methods. TF-IDF features were used for training the model, and class imbalance was handled using resampling techniques. The best estimator obtained from the random search was used for final training and evaluation.
+
 🔁 **LSTM (Long Short-Term Memory)**
 The LSTM model was implemented using PyTorch, and input data was tokenized using the BERT tokenizer. A custom Dataset class was created to handle text preprocessing. The model architecture included an embedding layer, a two-layer LSTM, dropout regularization, and a fully connected output layer. The model was trained using cross-entropy loss and the Adam optimizer over 5 epochs. Performance metrics including accuracy and ROC-AUC were logged per epoch, and class imbalance was a significant challenge.
+
 🌐 **XLM-RoBERTa**
 XLM-RoBERTa was fine-tuned using the HuggingFace `Trainer` API for sequence classification. The pre-trained 'xlm-roberta-base' model was used, with a binary classification head. Training arguments included early stopping, learning rate scheduling, and evaluation on the validation set per epoch. This approach is particularly suited for multilingual tasks, offering robustness in handling language diversity. Training was performed on a GPU when available to speed up the process.
 
